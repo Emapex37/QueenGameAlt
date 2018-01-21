@@ -621,42 +621,77 @@ public class Main extends javax.swing.JFrame {
         s2.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         s2.setForeground(new java.awt.Color(255, 255, 255));
         s2.setText("Save");
+        s2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                s2MouseClicked(evt);
+            }
+        });
         getContentPane().add(s2);
         s2.setBounds(670, 310, 50, 40);
 
         s3.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         s3.setForeground(new java.awt.Color(255, 255, 255));
         s3.setText("Save");
+        s3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                s3MouseClicked(evt);
+            }
+        });
         getContentPane().add(s3);
         s3.setBounds(350, 500, 50, 40);
 
         s4.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         s4.setForeground(new java.awt.Color(255, 255, 255));
         s4.setText("Save");
+        s4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                s4MouseClicked(evt);
+            }
+        });
         getContentPane().add(s4);
         s4.setBounds(670, 500, 50, 40);
 
         l1.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         l1.setForeground(new java.awt.Color(255, 255, 255));
         l1.setText("Load");
+        l1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l1MouseClicked(evt);
+            }
+        });
         getContentPane().add(l1);
         l1.setBounds(410, 310, 50, 40);
 
         l2.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         l2.setForeground(new java.awt.Color(255, 255, 255));
         l2.setText("Load");
+        l2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l2MouseClicked(evt);
+            }
+        });
         getContentPane().add(l2);
         l2.setBounds(730, 310, 50, 40);
 
         l3.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         l3.setForeground(new java.awt.Color(255, 255, 255));
         l3.setText("Load");
+        l3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l3MouseClicked(evt);
+            }
+        });
         getContentPane().add(l3);
         l3.setBounds(410, 500, 50, 40);
 
         l4.setFont(new java.awt.Font("Pristina", 1, 24)); // NOI18N
         l4.setForeground(new java.awt.Color(255, 255, 255));
         l4.setText("Load");
+        l4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                l4MouseClicked(evt);
+            }
+        });
         getContentPane().add(l4);
         l4.setBounds(730, 500, 50, 40);
 
@@ -786,6 +821,8 @@ public class Main extends javax.swing.JFrame {
         l4.setVisible(false);
         DatBackLabel.setVisible(false);
         DataTitle.setVisible(false);
+        
+        //Check save slots
         
         //System.out.println("Salad\n kills");
         
@@ -918,12 +955,98 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ToMenuLabelMouseClicked
 
+    //SAVING
+    
     private void s1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_s1MouseClicked
         // TODO add your handling code here:
         
-        
+        save.writeTest(chur, army, pop, mon, cardNum, "src\\data\\Slot1");
+        //change icon to "saved"
         
     }//GEN-LAST:event_s1MouseClicked
+
+    private void s2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_s2MouseClicked
+        // TODO add your handling code here:
+        
+        save.writeTest(chur, army, pop, mon, cardNum, "src\\data\\Slot2");
+        
+    }//GEN-LAST:event_s2MouseClicked
+
+    private void s3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_s3MouseClicked
+        // TODO add your handling code here:
+        
+        save.writeTest(chur, army, pop, mon, cardNum, "src\\data\\Slot3");
+        
+    }//GEN-LAST:event_s3MouseClicked
+
+    private void s4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_s4MouseClicked
+        // TODO add your handling code here:
+        
+        save.writeTest(chur, army, pop, mon, cardNum, "src\\data\\Slot4");
+        
+    }//GEN-LAST:event_s4MouseClicked
+
+    //LOADING
+    
+    private void l1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l1MouseClicked
+        // TODO add your handling code here:
+        
+        int[] slot1Data = load.readFile("src\\data\\Slot1");
+        
+        chur = slot1Data[1];
+        army = slot1Data[2];
+        pop = slot1Data[3];
+        mon = slot1Data[4];
+        cardNum = slot1Data[5];
+        
+        NGLabel.setText("Continue");
+        
+    }//GEN-LAST:event_l1MouseClicked
+
+    private void l2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l2MouseClicked
+        // TODO add your handling code here:
+        
+        int[] slot2Data = load.readFile("src\\data\\Slot2");
+        
+        chur = slot2Data[1];
+        army = slot2Data[2];
+        pop = slot2Data[3];
+        mon = slot2Data[4];
+        cardNum = slot2Data[5];
+        
+        NGLabel.setText("Continue");
+        
+    }//GEN-LAST:event_l2MouseClicked
+
+    private void l3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l3MouseClicked
+        // TODO add your handling code here:
+        
+        int[] slot3Data = load.readFile("src\\data\\Slot3");
+        
+        chur = slot3Data[1];
+        army = slot3Data[2];
+        pop = slot3Data[3];
+        mon = slot3Data[4];
+        cardNum = slot3Data[5];
+        
+        NGLabel.setText("Continue");
+        
+    }//GEN-LAST:event_l3MouseClicked
+
+    private void l4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l4MouseClicked
+        // TODO add your handling code here:
+        
+        int[] slot4Data = load.readFile("src\\data\\Slot4");
+        
+        chur = slot4Data[1];
+        army = slot4Data[2];
+        pop = slot4Data[3];
+        mon = slot4Data[4];
+        cardNum = slot4Data[5];
+        
+        NGLabel.setText("Continue");
+        
+    }//GEN-LAST:event_l4MouseClicked
     
     
     
@@ -1092,17 +1215,17 @@ public class Main extends javax.swing.JFrame {
     }
     
     
-    public void save(){
-        
-        save.writeTest(chur, army, pop, mon, cardNum, "src\\data\\slot1");
-        
-    }
-    
-    public void load(){
-        
-        //Set NGLabel to ("Continue")
-        
-    }
+//    public void save(){
+//        
+//        save.writeTest(chur, army, pop, mon, cardNum, "src\\data\\slot1");
+//        
+//    }
+//    
+//    public void load(){
+//        
+//        //Set NGLabel to ("Continue")
+//        
+//    }
     
     
     
